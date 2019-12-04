@@ -1,17 +1,17 @@
 {
+    "import": {
+        "prefix": "imp",
+        "body": "import ${2:moduleName} from '${1}'$0"
+    },
+    "importDestructing": {
+        "prefix": "imd",
+        "body": "import { $2 } from '${1:module}'$0"
+    },    
 	"Import react": {
 		"scope": "javascriptreact,javascript,jsx",
 		"prefix": "imr",
 		"body": [
-			"import React from 'react';"
-		],
-		"description": "Import react"
-	},
-	"Import react and anather": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "imra",
-		"body": [
-			"import React, { $1 } from 'react';"
+			"import React, { $0 } from 'react';"
 		],
 		"description": "Import react and anather"
 	},
@@ -19,7 +19,7 @@
 		"scope": "javascriptreact,javascript,jsx",
 		"prefix": "ifs",
 		"body": [
-			"import { $1 } from './styled';"
+			"import { $0 } from './styled';"
 		],
 		"description": "Import from styled"
 	},
@@ -44,52 +44,24 @@
 	},
 	"Export constant": {
 		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "rct",
+		"prefix": "ect",
 		"body": "export const $1 = '$1';"
 	},
 	"Print to console": {
 		"scope": "javascriptreact,javascript,jsx",
 		"prefix": "cl",
 		"body": [
-			"console.log($1)"
+			"console.log($0)"
 		],
 		"description": "Log output to console"
-	},
-	"Console Log": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "log",
-		"body": [
-			"console.log('====================================');",
-			"console.log($1);",
-			"console.log('====================================');"
-		]
-	},
-	"Export default": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "ed",
-		"body": [
-			"export default $1;"
-		],
-		"description": "Export default"
-	},
-	"Stateless Component": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "sl",
-		"body": [
-			"const ${1:ComponentName} = props => (",
-			"\t",
-			");",
-			"",
-			"export default ${1:ComponentName};"
-		]
 	},
 	"Stateless Component Return": {
 		"scope": "javascriptreact,javascript,jsx",
 		"prefix": "slr",
 		"body": [
-			"const ${1:ComponentName} = props => {",
+			"const ${1:ComponentName} = ({ $2 }) => {",
 			"\treturn (",
-			"\t\t$2",
+			"\t\t$0",
 			"\t);",
 			"}",
 			"",
@@ -110,105 +82,12 @@
 			"};"
 		]
 	},
-	"ComponentDidMount": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "cdm",
-		"body": [
-			"componentDidMount() {",
-			"\t$1",
-			"}"
-		]
-	},
-	"ComponentWillMount": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "cwm",
-		"body": [
-			"componentWillMount() {",
-			"\t$1",
-			"}"
-		]
-	},
-	"ComponentWillUpdate": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "cwu",
-		"body": [
-			"componentWillUpdate() {",
-			"\t$1",
-			"}"
-		]
-	},
-	"ComponentDidUpdate": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "cdu",
-		"body": [
-			"componentDidUpdate(prevProps, prevState) {",
-			"\t$1",
-			"}"
-		]
-	},
-	"ShouldComponentUpdate": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "scu",
-		"body": [
-			"shouldComponentUpdate(nextProps, nextState, nextContext) {",
-			"\t $1",
-			"}"
-		]
-	},
-	"Component Class": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "ccs",
-		"body": [
-			"class ${1:ComponentName} extends Component {",
-			"\tstate = { $2 }",
-			"\trender() {",
-			"\t\treturn (",
-			"\t\t\t$3",
-			"\t\t);",
-			"\t}",
-			"}",
-			"",
-			"export default ${1:ComponentName};"
-		]
-	},
-	"PureComponent Class": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "pcs",
-		"body": [
-			"class ${1:ComponentName} extends PureComponent {",
-			"\tstate = { $2 }",
-			"\trender() {",
-			"\t\treturn (",
-			"\t\t\t$3",
-			"\t\t);",
-			"\t}",
-			"}",
-			"",
-			"export default ${1:ComponentName};"
-		]
-	},
-	"Component Class With Redux": {
-		"scope": "javascriptreact,javascript,jsx",
-		"prefix": "ccsr",
-		"body": [
-			"class ${TM_FILENAME_BASE} extends Component {",
-			"\tstate = { $1 }",
-			"\trender() {",
-			"\t\treturn (",
-			"\t\t\t$2",
-			"\t\t);",
-			"\t}",
-			"}",
-			"",
-			"export default connect($4, $5)(${TM_FILENAME_BASE});"
-		]
-	},
 	"Export Styled Component": {
 		"scope": "javascriptreact,javascript,jsx",
 		"prefix": "esc",
 		"body": [
 			"export const $1 = styled.$2`",
-			"\t$3",
+			"\t$0",
 			"`"
 		]
 	},
@@ -217,10 +96,11 @@
 		"prefix": "fif",
 		"body": [
 			"const $1 = ($2) => {",
-			"\t$3",
+			"\t$0",
 			"}"
 		]
-	},
+    },
+    
 	"Test": {
 		"scope": "javascriptreact,javascript,jsx",
 		"prefix": "tt",
